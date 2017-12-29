@@ -48,6 +48,18 @@ module.exports = {
             }  
           }
         ]
+      },
+      {
+        test: /\.(csv|tsv)$/,
+        use: [
+          "csv-laoder"
+        ]
+      },
+      {
+        test: /\.xml$/,
+        use: [
+          "xml-loader"
+        ]
       }
 
     ]

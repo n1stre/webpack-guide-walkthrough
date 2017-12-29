@@ -2,7 +2,9 @@ import _ from "lodash";
 import "./styles/css-style.css";
 import "./styles/sass-style.sass";
 import "./styles/scss-style.scss";
+
 import HelloImg from "./img/hello-800-600.png";
+import Data from './data/data.example.xml';
 
 function component({
   tagname = "div",
@@ -29,7 +31,13 @@ var divWithImgBg = component({
   innerText: [],
   classNames: ["sass-img-bg"]
 })
+var pre = component({
+  tagname: "pre",
+  innerText: [ JSON.stringify(Data, null, 2) ],
+  classNames: ["scss-data-pre"]
+})
 
 document.body.appendChild(img);
 document.body.appendChild(h1);
 document.body.appendChild(divWithImgBg);
+document.body.appendChild(pre);
