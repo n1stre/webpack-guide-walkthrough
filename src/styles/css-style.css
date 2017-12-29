@@ -1,6 +1,17 @@
+@font-face {
+  font-family: 'Avenir';
+  src:  url('../fonts/AvenirNext-Regular.woff2') format('woff2'),
+        url('../fonts/AvenirNext-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Avenir", Helvetica;
+}
+
 .css {
   color: tomato;
-  font-family: monospace;
 }
 
 .image {
