@@ -1,13 +1,35 @@
 import _ from "lodash";
-import "./styles/css-style.css"
-import "./styles/sass-style.sass"
-import "./styles/scss-style.scss"
+import "./styles/css-style.css";
+import "./styles/sass-style.sass";
+import "./styles/scss-style.scss";
+import HelloImg from "./img/hello-800-600.png";
 
-function component(tagname) {
-  var element = document.createElement(tagname || "div");
-  element.innerHTML = _.join(["Hello", "webpack!!!"], " ");
-  element.classList.add("css","sass","scss")
+function component({
+  tagname = "div",
+  innerText = ["Hello", "Webpack"],
+  classNames = ["css", "sass", "scss"], 
+  src
+}) {
+  var element = document.createElement(tagname);
+  element.innerHTML = _.join(innerText, " ");
+  element.classList.add(...classNames)
+
+  if (tagname === "img" && src && typeof src === "string") {
+    element.src = src
+    element.classList.add("image")
+  }
+
   return element;
 }
 
-document.body.appendChild(component("h1"));
+var h1 = component({ tagname: "h1" });
+var img = component({ tagname: "img", src: HelloImg })
+var divWithImgBg = component({ 
+  tagname: "div", 
+  innerText: [],
+  classNames: ["sass-img-bg"]
+})
+
+document.body.appendChild(img);
+document.body.appendChild(h1);
+document.body.appendChild(divWithImgBg);

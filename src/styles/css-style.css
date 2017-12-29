@@ -2,3 +2,12 @@
   color: tomato;
   font-family: monospace;
 }
+
+.image {
+  display: block;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
