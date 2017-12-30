@@ -1,4 +1,5 @@
 import _ from "lodash";
+import printMe from "./print";
 
 function component({
   tagname = "div",
@@ -9,4 +10,15 @@ function component({
   return element;
 }
 
-document.body.appendChild(component({ tagname: "h1" }));
+var wrapper = component({innerText: []})
+var h1 = component({tagname: "h1"})
+var btn = component({
+  tagname: "button",
+  innerText: ["Click me and check the console!"]
+})
+
+wrapper.appendChild(h1);
+wrapper.appendChild(btn);
+btn.onclick = printMe;
+
+document.body.appendChild(wrapper);
